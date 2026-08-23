@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Georgia", serif;
+            min-height: 100vh;
+            background: linear-gradient(160deg, #ffd6e7, #fff0f5, #f8d9ff);
+            color: #5a2942;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           CONTENEDOR PRINCIPAL
+        ========================= */
+
+        .pagina {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            margin: auto;
+            padding: 30px 20px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* =========================
+           CORAZONES DE FONDO
+        ========================= */
+
+        .corazon {
+            position: fixed;
+            color: rgba(255, 105, 150, 0.35);
+            font-size: 25px;
+            animation: flotar 6s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .c1 {
+            left: 10%;
+            bottom: -40px;
+            animation-delay: 0s;
+        }
+
+        .c2 {
+            left: 75%;
+            bottom: -40px;
+            animation-delay: 2s;
+        }
+
+        .c3 {
+            left: 45%;
+            bottom: -40px;
+            animation-delay: 4s;
+        }
+
+        @keyframes flotar {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(25deg);
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           ENCABEZADO
+        ========================= */
+
+        .encabezado {
+            margin-top: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .encabezado p {
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a94d73;
+        }
+
+        .encabezado h1 {
+            font-size: 38px;
+            margin-top: 10px;
+            color: #8e3158;
+        }
+
+        /* =========================
+           CÍRCULO DE LA FOTO
+        ========================= */
+
+        .foto-contenedor {
+            width: 230px;
+            height: 230px;
+
+            margin: 0 auto 25px;
+
+            /* Círculo exterior rosa */
+            padding: 7px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #ff7ba9,
+                #c77dff
+            );
+
+            box-shadow:
+                0 12px 35px rgba(142, 49, 88, 0.25);
+
+            /* MUY IMPORTANTE:
+               todo lo que salga del círculo se corta */
+            overflow: hidden;
+
+            position: relative;
+
+            /* Evita que se deforme */
+            aspect-ratio: 1 / 1;
+
+            z-index: 2;
+        }
+
+        /* =========================
+           MARCO BLANCO INTERIOR
+        ========================= */
+
+        .foto-marco {
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50%;
+
+            background: white;
+
+            padding: 4px;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        /* =========================
+           IMAGEN
+        ========================= */
+
+        .foto-marco img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            border-radius: 50%;
+
+            /* La imagen se adapta al círculo */
+            object-fit: cover;
+
+            /* Centrada */
+            object-position: center center;
+
+            /* Nunca permite que sobresalga */
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* =========================
+           CARTA
+        ========================= */
+
+        .carta {
+            background: rgba(255, 255, 255, 0.75);
+
+            backdrop-filter: blur(8px);
+
+            border-radius: 25px;
+
+            padding: 28px 22px;
+
+            box-shadow:
+                0 10px 30px rgba(100, 40, 70, 0.12);
+
+            margin-bottom: 25px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .carta h2 {
+            font-size: 25px;
+            margin-bottom: 18px;
+            color: #9c3d67;
+        }
+
+        .carta p {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #633c4d;
+        }
+
+        /* =========================
+           CORAZÓN GRANDE
+        ========================= */
+
+        .corazon-grande {
+            font-size: 35px;
+            margin: 18px 0;
+            animation: latido 1.4s infinite;
+        }
+
+        @keyframes latido {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+
+        }
+
+        /* =========================
+           BOTÓN
+        ========================= */
+
+        .boton {
+            border: none;
+
+            background: linear-gradient(
+                135deg,
+                #ff5f91,
+                #c65cff
+            );
+
+            color: white;
+
+            padding: 15px 28px;
+
+            border-radius: 50px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(198, 92, 255, 0.25);
+
+            transition: 0.3s;
+
+            margin-top: 5px;
+        }
+
+        .boton:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px rgba(198, 92, 255, 0.35);
+        }
+
+        .boton:active {
+            transform: scale(0.94);
+        }
+
+        /* =========================
+           MENSAJE OCULTO
+        ========================= */
+
+        #mensaje {
+            display: none;
+
+            margin-top: 22px;
+
+            animation: aparecer 0.8s ease;
+        }
+
+        #mensaje p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           PIE
+        ========================= */
+
+        footer {
+            margin-top: 30px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            color: #9b687d;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =========================
+           CELULARES PEQUEÑOS
+        ========================= */
+
+        @media (max-width: 360px) {
+
+            .pagina {
+                padding: 25px 15px 40px;
+            }
+
+            .encabezado h1 {
+                font-size: 32px;
+            }
+
+            .foto-contenedor {
+                width: 200px;
+                height: 200px;
+            }
+
+            .carta {
+                padding: 23px 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         CORAZONES FLOTANDO
+    ========================= -->
+
+    <div class="corazon c1">♥</div>
+    <div class="corazon c2">♥</div>
+    <div class="corazon c3">♥</div>
+
+
+    <main class="pagina">
+
+        <!-- =========================
+             ENCABEZADO
+        ========================= -->
+
+        <section class="encabezado">
+
+            <p>
+                Una pequeña sorpresa para ti
+            </p>
+
+            <h1>
+                Rocío Vargas C ❤️
+            </h1>
+
+        </section>
+
+
+        <!-- =========================
+             FOTO
+        ========================= -->
+
+        <div class="foto-contenedor">
+
+            <div class="foto-marco">
+
+                <img
+                    src="img/r1.jpeg"
+                    alt="Una foto especial"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CARTA
+        ========================= -->
+
+        <section class="carta">
+
+            <h2>
+                Hay algo que quiero decirte...
+            </h2>
+
+
+            <p>
+
+                Desde que llegaste a mi vida,
+                hay momentos que se sienten
+                un poquito más especiales.
+
+            </p>
+
+
+            <div class="corazon-grande">
+                ❤️
+            </div>
+
+
+            <p>
+
+                Esta página es pequeña,
+                pero la hice pensando
+                especialmente en ti.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                Espero que cuando la veas
+                puedas sonreír,
+                porque esa sonrisa tuya
+                es una de mis cosas favoritas.
+
+            </p>
+
+
+            <br>
+
+
+            <!-- BOTÓN -->
+
+            <button
+                class="boton"
+                onclick="mostrarMensaje()"
+            >
+
+                Tengo algo más que decirte 💌
+
+            </button>
+
+
+            <!-- MENSAJE -->
+
+            <div id="mensaje">
+
+                <p>
+
+                    Si llegaste hasta aquí...
+
+                    <br>
+                    <br>
+
+                    quiero que sepas que eres alguien
+                    realmente especial para mí.
+
+                    ❤️
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PIE
+        ========================= -->
+
+        <footer>
+
+            Hecho con mucho cariño ❤️
+
+        </footer>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function mostrarMensaje() {
+
+            const mensaje =
+                document.getElementById("mensaje");
+
+            mensaje.style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
